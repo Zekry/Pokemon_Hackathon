@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <style media="screen">
+    * {
+      box-sizing: border-box;
+    }
+
+    .column {
+      float: left;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .left, .right {
+      width: 38%;
+    }
+
+    .middle {
+      width: 24%;
+      top: auto;
+      bottom: auto;
+      padding-top: 75px
+    }
+
+    .submit {
+      background-color: #f44336;
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      width = 100%
+      top: auto;
+      bottom: auto;
+
+    }
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .center-img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 25px;
+      padding-top: 10px;
+      }
+
+      .disclaimer{
+        text-align: center;
+        font-weight: lighter;
+        padding: 15px, 50px;
+      }
+
+      ul {
+  list-style-type: none;
+}
+
+      li {
+        display: inline-block;
+      }
+
+      input[type="checkbox"][id^="cb"] {
+        display: none;
+      }
+
+      label {
+        border: 1px solid #fff;
+        padding: 10px;
+        display: block;
+        position: relative;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      label:before {
+        background-color: white;
+        color: white;
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        border: 1px solid grey;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 28px;
+        transition-duration: 0.4s;
+        transform: scale(0);
+      }
+
+      label img {
+        height: 100px;
+        width: 100px;
+        transition-duration: 0.2s;
+        transform-origin: 50% 50%;
+      }
+
+      :checked + label {
+        border-color: #ddd;
+      }
+
+      :checked + label:before {
+        content: "✓";
+        background-color: grey;
+        transform: scale(1);
+      }
+
+      :checked + label img {
+        transform: scale(0.9);
+        box-shadow: 0 0 5px #333;
+        z-index: -1;
+      }
+    </style>
+
+  </head>
+  <img src="static/images/title.jpg" alt="" class = "center-img">
+  <body>
+    <h3 class = disclaimer >Choose a pokemon to beat {{player_1_name_html}}</h3>
+    <form action = "/result" method="POST">
+      <div class="row">
+        <div class="column left">
+          <h1>I choose you:
+            <!-- <select name="player_2">
+              {% for i in players_2_options %}
+              <option value={{i}} >{{i}}</option>
+              {% endfor %}
+            </select> -->
+          </h1>
+            <!-- <img src="static/images/pokeball_editted.gif" height="450px"> -->
+            <ul>
+              {% for i, j in player_2_url_name %}
+              <li>
+                <!-- <input type="radio"> -->
+                <!-- <label for={{i}} value={{i}} name="player_2"><img src={{j}}></label> -->
+                <label>
+                  <input type="radio" name="player_2" value={{i}}>
+                  <img src={{j}}>{{i}}
+                </label>
+
+              </li>
+              {% endfor %}
+            </ul>
+        </div>
+
+        <div class="column middle">
+          <img src="static/images/vs.JPG" alt="" width=100% height=110%>
+          <p><input class = "submit" type ="submit" value = "Attack"/></p>
+        </div>
+
+        <div class="column right">
+          <h1>Player 1: {{player_1_name_html}}</h1>
+          <img src={{player_1_img_url}}>
+
+        </div>
+      </div>
+<h5 class = disclaimer>Disclaimer: This is a Data Science Project. The model has been trained on a pokemon dataset containing player 1, player 2, stats for both players and a winner. The score of the model was between 85 to 90.</h5>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style media="screen">
+  .center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 25px;
+    padding-top: 10px;
+    }
+
+  .title{
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 25px;
+    padding-top: 10px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .column {
+    float: left;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .left, .right {
+    width: 38%;
+  }
+
+  .middle {
+    width: 24%;
+    top: auto;
+    bottom: auto;
+  }
+
+  .submit {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width = 100%
+    top: auto;
+    bottom: auto;
+
+  }
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 25px;
+    padding-top: 10px;
+    }
+
+    .disclaimer{
+      text-align: center;
+      font-weight: lighter;
+      padding: 15px, 50px;
+    }
+  </style>
+</head>
+
+
+  <body>
+    <img src="static/images/title.jpg" alt="" class = "center-img">
+    <title>Winner</title>
+    <form action = "/" method="GET">
+    <div class="row">
+      <div class="column left">
+      </div>
+      <div class="column middle">
+        <h2> And the winner is:</h2>
+        <h1>{{ winner }} </h1>
+        <img src={{url_winner}} alt="">
+
+        <p><input class = "submit" type ="submit" value = "New Game"/></p>
+
+      </div>
+      <div class="column right">
+      </div>
+
+
+
+      </form>
+
+  </body>
+</html>
